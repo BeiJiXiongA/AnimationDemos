@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4077CEB1E7A27B400643DF4 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4077CE71E7A27B400643DF4 /* 1.png */; };
+		E4077CEC1E7A27B400643DF4 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4077CE81E7A27B400643DF4 /* 2.png */; };
+		E4077CED1E7A27B400643DF4 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = E4077CE91E7A27B400643DF4 /* 4.png */; };
+		E4077CEE1E7A27B400643DF4 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = E4077CEA1E7A27B400643DF4 /* 3.png */; };
 		E413A0E31C01C2D400E80E87 /* ButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E413A0E21C01C2D400E80E87 /* ButtonTableViewCell.m */; };
 		E4235E761BB0E42100B8D73C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4235E751BB0E42100B8D73C /* main.m */; };
 		E4235E791BB0E42100B8D73C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4235E781BB0E42100B8D73C /* AppDelegate.m */; };
@@ -134,6 +138,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4077CE71E7A27B400643DF4 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		E4077CE81E7A27B400643DF4 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		E4077CE91E7A27B400643DF4 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		E4077CEA1E7A27B400643DF4 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		E413A0E11C01C2D400E80E87 /* ButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonTableViewCell.h; sourceTree = "<group>"; };
 		E413A0E21C01C2D400E80E87 /* ButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonTableViewCell.m; sourceTree = "<group>"; };
 		E4235E701BB0E42100B8D73C /* AnimationDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,9 +298,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4077CE61E7A27A300643DF4 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				E4077CE71E7A27B400643DF4 /* 1.png */,
+				E4077CE81E7A27B400643DF4 /* 2.png */,
+				E4077CE91E7A27B400643DF4 /* 4.png */,
+				E4077CEA1E7A27B400643DF4 /* 3.png */,
+			);
+			path = screenshots;
+			sourceTree = "<group>";
+		};
 		E4235E671BB0E42100B8D73C = {
 			isa = PBXGroup;
 			children = (
+				E4077CE61E7A27A300643DF4 /* screenshots */,
 				E4235E721BB0E42100B8D73C /* AnimationDemos */,
 				E4235E8C1BB0E42100B8D73C /* AnimationDemosTests */,
 				E4235E711BB0E42100B8D73C /* Products */,
@@ -582,6 +602,7 @@
 				E463F5481BB4E50D001C40C3 /* _0019_w20.png in Resources */,
 				E4235EAB1BB12F2200B8D73C /* dingwei2@3x.png in Resources */,
 				E463F5AB1BB520AE001C40C3 /* _0030_m13.png in Resources */,
+				E4077CED1E7A27B400643DF4 /* 4.png in Resources */,
 				E463F5B01BB520AE001C40C3 /* _0035_m8.png in Resources */,
 				E463F5A81BB520AE001C40C3 /* _0027_m16.png in Resources */,
 				E463F54B1BB4E50D001C40C3 /* _0022_w23.png in Resources */,
@@ -606,6 +627,7 @@
 				E463F5431BB4E50D001C40C3 /* _0014_w15.png in Resources */,
 				E463F55E1BB4F34B001C40C3 /* s1.png in Resources */,
 				E4235EA21BB124CF00B8D73C /* taking_pictures@2x.png in Resources */,
+				E4077CEE1E7A27B400643DF4 /* 3.png in Resources */,
 				E463F5521BB4E50D001C40C3 /* _0029_w30.png in Resources */,
 				E463F59A1BB520AE001C40C3 /* _0013_m30.png in Resources */,
 				E4235EAC1BB12F2200B8D73C /* renzheng@2x.png in Resources */,
@@ -624,6 +646,7 @@
 				E463F5B71BB520AE001C40C3 /* _0042_m1.png in Resources */,
 				E4235EAD1BB12F2200B8D73C /* renzheng@3x.png in Resources */,
 				E463F5411BB4E50D001C40C3 /* _0012_w13.png in Resources */,
+				E4077CEB1E7A27B400643DF4 /* 1.png in Resources */,
 				E463F5511BB4E50D001C40C3 /* _0028_w29.png in Resources */,
 				E463F5AD1BB520AE001C40C3 /* _0032_m11.png in Resources */,
 				E463F5601BB4F34B001C40C3 /* s3.png in Resources */,
@@ -649,6 +672,7 @@
 				E463F5A41BB520AE001C40C3 /* _0023_m20.png in Resources */,
 				E463F5581BB4E50D001C40C3 /* _0035_w36.png in Resources */,
 				E4235E841BB0E42100B8D73C /* LaunchScreen.xib in Resources */,
+				E4077CEC1E7A27B400643DF4 /* 2.png in Resources */,
 				E4235E811BB0E42100B8D73C /* Images.xcassets in Resources */,
 				E463F5981BB520AE001C40C3 /* _0011_m32.png in Resources */,
 				E463F5A51BB520AE001C40C3 /* _0024_m19.png in Resources */,
