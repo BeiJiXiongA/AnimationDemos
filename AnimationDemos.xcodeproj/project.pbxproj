@@ -117,6 +117,7 @@
 		E463F5B51BB520AE001C40C3 /* _0040_m3.png in Resources */ = {isa = PBXBuildFile; fileRef = E463F58A1BB520AE001C40C3 /* _0040_m3.png */; };
 		E463F5B61BB520AE001C40C3 /* _0041_m2.png in Resources */ = {isa = PBXBuildFile; fileRef = E463F58B1BB520AE001C40C3 /* _0041_m2.png */; };
 		E463F5B71BB520AE001C40C3 /* _0042_m1.png in Resources */ = {isa = PBXBuildFile; fileRef = E463F58C1BB520AE001C40C3 /* _0042_m1.png */; };
+		E49EED1F1EE7A743000F0EA0 /* KouView.m in Sources */ = {isa = PBXBuildFile; fileRef = E49EED1E1EE7A743000F0EA0 /* KouView.m */; };
 		E4A63C011BB8C9B500565268 /* SHXiaoHongRenView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A63C001BB8C9B500565268 /* SHXiaoHongRenView.m */; };
 		E4A63C041BB8CF6D00565268 /* SHSendingYiXiangView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A63C031BB8CF6D00565268 /* SHSendingYiXiangView.m */; };
 		E4BD7EE21BBB8B1700C3907F /* SHTempNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BD7EE11BBB8B1700C3907F /* SHTempNotification.m */; };
@@ -263,6 +264,8 @@
 		E463F58A1BB520AE001C40C3 /* _0040_m3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _0040_m3.png; sourceTree = "<group>"; };
 		E463F58B1BB520AE001C40C3 /* _0041_m2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _0041_m2.png; sourceTree = "<group>"; };
 		E463F58C1BB520AE001C40C3 /* _0042_m1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _0042_m1.png; sourceTree = "<group>"; };
+		E49EED1D1EE7A743000F0EA0 /* KouView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KouView.h; sourceTree = "<group>"; };
+		E49EED1E1EE7A743000F0EA0 /* KouView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KouView.m; sourceTree = "<group>"; };
 		E4A63BFF1BB8C9B500565268 /* SHXiaoHongRenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHXiaoHongRenView.h; sourceTree = "<group>"; };
 		E4A63C001BB8C9B500565268 /* SHXiaoHongRenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHXiaoHongRenView.m; sourceTree = "<group>"; };
 		E4A63C021BB8CF6D00565268 /* SHSendingYiXiangView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSendingYiXiangView.h; sourceTree = "<group>"; };
@@ -382,6 +385,8 @@
 				E4D3DDED1C9063130062AE37 /* NSString+stringSize.m */,
 				E4D3DDE91C9060D30062AE37 /* LoopLabelView.h */,
 				E4D3DDEA1C9060D30062AE37 /* LoopLabelView.m */,
+				E49EED1D1EE7A743000F0EA0 /* KouView.h */,
+				E49EED1E1EE7A743000F0EA0 /* KouView.m */,
 			);
 			path = AnimationDemos;
 			sourceTree = "<group>";
@@ -723,6 +728,7 @@
 				E4235EBE1BB2853500B8D73C /* SHCircleView.m in Sources */,
 				E4C24A991BFD717D00E8478C /* UpglideAnimationView.m in Sources */,
 				E4A63C041BB8CF6D00565268 /* SHSendingYiXiangView.m in Sources */,
+				E49EED1F1EE7A743000F0EA0 /* KouView.m in Sources */,
 				E4264E561BBA874D005AC1F8 /* SHNumberView.m in Sources */,
 				E4D3DDEE1C9063130062AE37 /* NSString+stringSize.m in Sources */,
 				E4235E7C1BB0E42100B8D73C /* ViewController.m in Sources */,

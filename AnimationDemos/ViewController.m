@@ -8,13 +8,20 @@
 
 #import "ViewController.h"
 #import "TuoYuanView.h"
+#import "KouView.h"
 
 #define MAXHEIGHT     750
 #define MAXWIDTH      1000
 
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+
 @interface ViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     UIImagePickerController *imagePicker;
+    
+    CATransform3D trans;
 }
 @property (weak, nonatomic) IBOutlet UIView *layerView;
 
@@ -28,20 +35,80 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.colorLayer = [CALayer layer];
-    self.colorLayer.frame = CGRectMake(0, 0, 100, 100);
-    self.colorLayer.backgroundColor = [UIColor blueColor].CGColor;
-    [self.layerView.layer addSublayer:self.colorLayer];
     
-    imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
     
-    UIVisualEffect *visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:visualEffect];
-    blurView.frame = CGRectMake(50, 250, 300, 100);
-    [self.view addSubview:blurView];
     
+    // Do any additional setup after loading the view, typically from a
+//    self.colorLayer = [CALayer layer];
+//    self.colorLayer.frame = CGRectMake(0, 0, 100, 100);
+//    self.colorLayer.backgroundColor = [UIColor blueColor].CGColor;
+//    self.colorLayer.anchorPoint = CGPointMake(0.5, 0);
+//    [self.layerView.layer addSublayer:self.colorLayer];
+//    
+//    imagePicker = [[UIImagePickerController alloc] init];
+//    imagePicker.delegate = self;
+
+    //毛玻璃
+//    UIVisualEffect *visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:visualEffect];
+//    blurView.frame = CGRectMake(50, 250, 300, 100);
+//    [self.view addSubview:blurView];
+    
+    
+    self.view.backgroundColor = [UIColor orangeColor];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(SCREEN_WIDTH/2 - 30, 200-30, 60, 60);
+    [button setTitle:@"P" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    KouView *kouView = [[KouView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, SCREEN_HEIGHT - 100)];
+    kouView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    kouView.userInteractionEnabled = NO;
+    [self.view addSubview:kouView];
+    
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+//    imageView.image = [UIImage imageNamed:@"renzheng"];
+//    [self.view addSubview:imageView];
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    
+//    UIBezierPath *path1 = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+
+    UIBezierPath *path1 = [UIBezierPath bezierPath];
+    
+    [path1 moveToPoint:CGPointMake(200, 160)];
+    
+    [path1 addLineToPoint:CGPointMake(250, 250)];
+    
+    [path1 addLineToPoint:CGPointMake(250, 300)];
+    
+    [path1 addLineToPoint:CGPointMake(150, 250)];
+
+    [path1 closePath];
+    
+    [path appendPath:[path1 bezierPathByReversingPath]];
+    
+    
+//    [path appendPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(100, 100, 150, 100)] bezierPathByReversingPath]];
+    
+//    // MARK: circlePath
+//    [path appendPath:[UIBezierPath bezierPathWithArcCenter:CGPointMake(SCREEN_WIDTH / 2, 200) radius:100 startAngle:0 endAngle:2*M_PI clockwise:NO]];
+//
+//    // MARK: roundRectanglePath
+//    [path appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(20, 400, SCREEN_WIDTH - 2 * 20, 100) cornerRadius:15] bezierPathByReversingPath]];
+    
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    
+    shapeLayer.path = path.CGPath;
+    
+    kouView.layer.mask = shapeLayer;
+}
+
+-(void)buttonClick
+{
+    NSLog(@"button clicked!");
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -84,53 +151,79 @@
 
 - (IBAction)changeColor:(id)sender {
 
-    CGFloat red = arc4random() / (CGFloat)INT_MAX;
-    CGFloat green = arc4random() / (CGFloat)INT_MAX;
-    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
-    UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:1];
-    CABasicAnimation *animation = [CABasicAnimation animation];
-    animation.fromValue = (__bridge id)self.colorLayer.backgroundColor;
-    self.colorLayer.backgroundColor = color.CGColor;
-    animation.keyPath = @"backgroudColor";
-    animation.toValue = (__bridge id)(color.CGColor);
-    [self applyBasicAnimation:animation toValue:self.colorLayer];
     
+//    trans =  CATransform3DTranslate(trans, -10, -30, -10);
+//    trans = CATransform3DScale(trans, 1.0/3.0, 1.0/2.0, 1.0/2.0);
+    trans = CATransform3DRotate(_colorLayer.transform, 30*M_PI/180, 1, 0, 0);
+    trans.m34 = -1.0/600.0;
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:1 options:UIViewAnimationOptionLayoutSubviews animations:^{
+        self.colorLayer.transform = trans;
+//        _colorLayer.frame = CGRectMake(_colorLayer.frame.origin.x - 10, _colorLayer.frame.origin.y-30, _colorLayer.frame.size.width, _colorLayer.frame.size.height);
+    } completion:^(BOOL finished) {
+        
+    }];
     
-    [UIView animateWithDuration:3
-                          delay:0
-         usingSpringWithDamping:.3
-          initialSpringVelocity:10
-                        options:2
-                     animations:^{
-                         _colorLayer.frame = CGRectMake(0, 0, CGRectGetWidth(_colorLayer.frame), CGRectGetHeight(_colorLayer.frame)+50);
-                     }
-                     completion:^(BOOL finished) {
-                         
-                     }
-     ];
+    NSLog(@"color layer frame %@",NSStringFromCGRect(_colorLayer.frame));
+//    CGFloat red = arc4random() / (CGFloat)INT_MAX;
+//    CGFloat green = arc4random() / (CGFloat)INT_MAX;
+//    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
+//    UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:1];
+//    CABasicAnimation *animation = [CABasicAnimation animation];
+//    animation.fromValue = (__bridge id)self.colorLayer.backgroundColor;
+//    self.colorLayer.backgroundColor = color.CGColor;
+//    animation.keyPath = @"backgroudColor";
+//    animation.toValue = (__bridge id)(color.CGColor);
+//    [self applyBasicAnimation:animation toValue:self.colorLayer];
+//    
+//    
+//    [UIView animateWithDuration:3
+//                          delay:0
+//         usingSpringWithDamping:.3
+//          initialSpringVelocity:10
+//                        options:2
+//                     animations:^{
+//                         _colorLayer.frame = CGRectMake(0, 0, CGRectGetWidth(_colorLayer.frame), CGRectGetHeight(_colorLayer.frame)+50);
+//                     }
+//                     completion:^(BOOL finished) {
+//                         
+//                     }
+//     ];
 }
 - (IBAction)changeColors:(id)sender {
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
-    animation.keyPath = @"backgroundColor";
-    animation.duration = 2.0f;
-    animation.values = @[(__bridge id)[UIColor blueColor].CGColor,
-                         (__bridge id)[UIColor redColor].CGColor,
-                         (__bridge id)[UIColor greenColor].CGColor,
-                         (__bridge id)[UIColor blueColor].CGColor];
-    [self.colorLayer addAnimation:animation forKey:nil];
     
-    [UIView animateWithDuration:3
-                          delay:0
-         usingSpringWithDamping:.3
-          initialSpringVelocity:10
-                        options:2
-                     animations:^{
-                         _colorLayer.frame = CGRectMake(0, 0, CGRectGetWidth(_colorLayer.frame), CGRectGetHeight(_colorLayer.frame)-50);
-                     }
-                     completion:^(BOOL finished) {
-                         
-                     }
-     ];
+//    trans =  CATransform3DTranslate(trans, 10, 30, 10);
+//    trans = CATransform3DScale(trans, 3, 2, 2);
+    trans = CATransform3DRotate(_colorLayer.transform, -30*M_PI/180, 1, 0, 0);
+    trans.m34 = 1.0/600.0;
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.5 options:UIViewAnimationOptionLayoutSubviews animations:^{
+                self.colorLayer.transform = trans;
+//        _colorLayer.frame = CGRectMake(_colorLayer.frame.origin.x + 10, _colorLayer.frame.origin.y + 30, _colorLayer.frame.size.width, _colorLayer.frame.size.height);
+    } completion:^(BOOL finished) {
+        
+    }];
+    NSLog(@"color layer frame %@",NSStringFromCGRect(_colorLayer.frame));
+    
+//    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+//    animation.keyPath = @"backgroundColor";
+//    animation.duration = 2.0f;
+//    animation.values = @[(__bridge id)[UIColor blueColor].CGColor,
+//                         (__bridge id)[UIColor redColor].CGColor,
+//                         (__bridge id)[UIColor greenColor].CGColor,
+//                         (__bridge id)[UIColor blueColor].CGColor];
+//    [self.colorLayer addAnimation:animation forKey:nil];
+//    
+//    [UIView animateWithDuration:3
+//                          delay:0
+//         usingSpringWithDamping:.3
+//          initialSpringVelocity:10
+//                        options:2
+//                     animations:^{
+//                         _colorLayer.frame = CGRectMake(0, 0, CGRectGetWidth(_colorLayer.frame), CGRectGetHeight(_colorLayer.frame)-50);
+//                     }
+//                     completion:^(BOOL finished) {
+//                         
+//                     }
+//     ];
 }
 
 -(void)applyBasicAnimation:(CABasicAnimation *)animation toValue:(CALayer *)layer
